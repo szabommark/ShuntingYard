@@ -64,7 +64,7 @@ operatorTable = [
     ]
 ```
 
-## Operátorrá alakítás - KÖTELEZŐ
+## Operátorrá alakítás
 
 Definiáljuk az `operatorFromChar` függvényt, amely egy adott operátortáblából megpróbálja kinyerni egy adott szimbólumhoz tartozó információt. Ha a táblázat tartalmaz a karakter által meghatározott művelethez információt, akkor adjuk vissza az eredményt a korábban megadott reprezentációval (`TokBinOp`) egy `Just` konstruktorba csomagolva. Ha nincs rendelkezésre álló információ, akkor az eredmény legyen `Nothing`.
 
@@ -90,7 +90,7 @@ operatorFromChar [] '+' == Nothing
 operatorFromChar [('+', ((/), 7, InfixL))] '+' == Just (TokBinOp (/) '+' 7 InfixL)
 ```
 
-## String-ek tokenizálása - KÖTELEZŐ
+## String-ek tokenizálása
 
 Már egyes operátorokat tudunk karakterből tokenné alakítani, ezért innentől már tetszőleges `String`-et is megpróbálhatunk tokensorozattá alakítani. Definiáljuk a `parseTokens` függvényt, amely egy `String`-et egy adott operátortábla segítségével egy tokenek listájává alakít. Hasonlóan az előző feladathoz, itt is előfordulhat, hogy nem tudjuk értelmezni a kifejezést. Amennyiben olyan elemeket tartalmaz, ami nem értelmezhető, akkor a függvény `Nothing` értéket adjon eredményül. 
 
@@ -137,7 +137,7 @@ parse "1.5 + 2" == Just [TokLit 1.5, tAdd, TokLit 2]
 parse "  1.5     +  2   " == Just [TokLit 1.5, tAdd, TokLit 2]
 ```
 
-## Alap Shunting Yard algoritmus - kötési erősség és irányok figyelmen kívül hagyása - KÖTELEZŐ
+## Alap Shunting Yard algoritmus - kötési erősség és irányok figyelmen kívül hagyása
 
 Az algoritmust inkrementálisan fogjuk felépíteni, először az operátorok kötési irányát és erősségét ignoráljuk, majd későbbi feladatokban kiegészítjük az algoritmust.
 
@@ -202,7 +202,7 @@ syNoEval "1 + 2 * 3 - 4" == Just ([4.0,3.0,2.0,1.0],[tMinus,tMul,tAdd])
 syEvalBasic "1 + 2 * 3 - 4" == Just ([-1.0],[])
 ```
 
-## Az algoritmus javítása - kötési erősségek és irányok figyelembevétele - KÖTELEZŐ
+## Az algoritmus javítása - kötési erősségek és irányok figyelembevétele
 
 Egészítsük ki az algoritmust, hogy figyelembe vegye a kötési erősségeket és irányokat is. A korábban megadott algoritmus működése csak az operátor tokenek olvasása során változik:
 
