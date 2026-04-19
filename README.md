@@ -3,7 +3,7 @@
 Mind a matematikában, mind a programozási nyelvek során találkozhatunk aritmetikai kifejezésekkel, amelyek infix módon alkalmazott operátorokat tartalmaznak. Az ilyen infix kifejezéseknek viszont a kiértékelése nem feltétlenül egyértelmű. Habár az alap aritmetikai műveleteknél ismerjük az operátorok sorrendjét, mert azt mindenkinek meg kellett általános iskolában tanulnia, de ismeretlen operátorok esetén ez nem feltétlenül egyértelmű:
 
 a ⊕ b ⊘ c ∧ (d ⊎ e) ∨ f
-(1) Hogyan kellene ezt az ismeretlen operátorokat tartalmazó kifejezést zárójelezni?
+Hogyan kellene ezt az ismeretlen operátorokat tartalmazó kifejezést zárójelezni?
 
 Az ilyen problémák megoldásáért szokás a programozási nyelvek megvalósítása során az operátorokat egy fixitási annotációval ellátni, amely eltárolja, hogy milyen sorrendben (precedencia) és milyen irányba (kötési irány) kell egy olyan adott kifejezést zárójelezni. Rengeteg algoritmus létezik, ami ezen információk ismeretében ki tud értékelni kifejezéseket. Ebben a feladatban egy ilyen módszert, a Shunting Yard algoritmust fogjuk megvalósítani.
 
